@@ -20,7 +20,7 @@ snippet once
 # http. User js function snippet as handler
 snippet http
 	http.createServer(${1:handler}).listen(${2:port_number});
-# net 
+# net
 snippet net
 	net.createServer(function(${1:socket}){
 		${1}.on('data', function('data'){
@@ -49,3 +49,45 @@ snippet stdout
 	process.stdout
 snippet stderr
 	process.stderr
+snippet skeleton "express skeleton"
+	var express = require('express');
+	var app = express();
+
+	app.get('/', function (req, res) {
+	  res.send('Hello World!');
+	});
+
+	var server = app.listen(3000, function () {
+	  var host = server.address().address;
+	  var port = server.address().port;
+
+	  console.log('Example app listening at http://%s:%s', host, port);
+	});
+snippet route "express route"
+	app.get('${1:/}', function (req, res) {
+	  ${2:res.send('Hello World!');}
+	});
+
+snippet sql "sequelize init"
+	var Sequelize = require("sequelize");
+	var sql = new Sequelize('database', 'username', 'password', {
+	  host: 'localhost',
+	  dialect: 'postgres',
+
+	  pool: {
+		max: 5,
+		min: 0,
+		idle: 10000
+	  },
+	});
+
+snippet sqldef "Sequelize table def"
+	sql.define('${1:User}', {
+		${2}
+	}, {
+	  freezeTableName: true
+	})
+snippet sqlfield "Sequelize table field"
+	${1:name}: {
+	  type: Sequelize.${2:STRING}
+	}

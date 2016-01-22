@@ -148,3 +148,36 @@ if err != nil {
 	log.${1:Fatal}(err)
 }
 endsnippet
+
+snippet flag "Simple flag" b
+var myflag = flag.Bool("v", false, "verbose mode")
+endsnippet
+
+snippet sem "Counting semaphore" b
+var sema = make(chan struct{}, 100)
+sema <- struct{}{}
+<- sema
+endsnippet
+
+snippet cli "Typical cli skeleton" b
+runtime.GOMAXPROCS(runtime.NumCPU())
+
+log.SetFlags(0)
+
+app := cli.NewApp()
+app.Name = "Web crawler"
+app.Usage = "No description available"
+app.Flags = []cli.Flag{
+	cli.StringFlag{
+		Name:  "dbHost",
+		Value: "localhost:6379",
+		Usage: "Specifies the host:port where the Redis db sits",
+	},
+}
+app.Action = func(c *cli.Context) {
+}
+
+if err := app.Run(os.Args); err != nil {
+	log.Println("app.Run() error:", err)
+}
+endsnippet
