@@ -187,380 +187,98 @@ endsnippet
 
 snippet reactcl
 var ${1:Component} = React.createClass({
+  render: function() {
+    var self = this;
+    return (
+      <div>
+        Component
+      </div>
+    );
+  }
+});
+
+endsnippet
+
+snippet reactcl!
+var ${1:Component} = React.createClass({
+  propTypes: {
+  },
+  contextTypes: {
+    store: React.PropTypes.object
+  },
+  childContextTypes: {
+    store: React.PropTypes.object
+  },
+  getChildContext: function() {
+    return {
+      store: this.props.store
+    }
+  },
   getInitialState: function() {
-    return {data: []}
+    return {}
   },
   componentDidMount: function() { },
+  componentDidMount: function() { },
   render: function() {
+    var self = this;
     return (
-	  <div>
+      <div>
         Component
-	  </div>
+      </div>
     );
   }
 });
 endsnippet
 
-snippet bsgrid
-<div className="container-fluid">
-  <div className="row">
-    <div className="col-md-8">.col-md-8</div>
-    <div className="col-md-4">.col-md-4</div>
-  </div>
-</div>
-endsnippet
-
-snippet bsnav "Bootstrap nav"
-<nav className="navbar navbar-inverse navbar-fixed-top">
-  <div className="container">
-    <div className="navbar-header">
-      <a className="navbar-brand" href="#">Main title</a>
-    </div>
-    <div id="navbar" className="navbar-collapse collapse">
-      <ul className="nav navbar-nav">
-        <li className="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li className="dropdown">
-          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-          <ul className="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li role="separator" className="divider"></li>
-            <li className="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-endsnippet
-
-snippet bscon "Bootstrap container"
-<div className="container-fluid">
-  ${1}
-</div>
-endsnippet
-
-snippet bstitle "Bootstrap jumbotron"
-<div className="jumbotron">
-  <h1>Title</h1>
-  <p>Lorem ipsum</p>
-</div>
-endsnippet
-
-snippet bsbtn "Bootstrap button"
-<button type="button" className="btn btn-lg btn-default">Default</button>
-endsnippet
-
-snippet bsbtnblue "Bootstrap button blue"
-<button type="button" className="btn btn-lg btn-primary">Default</button>
-endsnippet
-
-snippet bsbtngreen "Bootstrap button green"
-<button type="button" className="btn btn-lg btn-success">Default</button>
-endsnippet
-
-snippet bsbtnlblue "Bootstrap button light blue"
-<button type="button" className="btn btn-lg btn-info">Default</button>
-endsnippet
-
-snippet bsbtnorange "Bootstrap button orange"
-<button type="button" className="btn btn-lg btn-warn">Default</button>
-endsnippet
-
-snippet bsbtnred "Bootstrap button red"
-<button type="button" className="btn btn-lg btn-danger">Default</button>
-endsnippet
-
-snippet bsbtnmodal
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Toggle modal</button>
-endsnippet
-
-snippet bsbtngroup
-<div className="btn-group" role="group" aria-label="...">
-  <button type="button" className="btn btn-default">Left</button>
-  <button type="button" className="btn btn-default">Middle</button>
-  <button type="button" className="btn btn-default">Right</button>
-</div>
-endsnippet
-
-snippet bstable
-<table className="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-  </tbody>
-</table>
-endsnippet
-
-snippet bsform
-<form>
-  <div className="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email">
-  </div>
-  <div className="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div className="form-group">
-    <label for="exampleInputFile">File input</label>
-    <p className="help-block">Example block-level help text here.</p>
-  </div>
-  <div className="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
-  </div>
-  <button type="submit" className="btn btn-default">Submit</button>
-</form>
-endsnippet
-
-snippet bsdropdown
-<div className="dropdown">
-  <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Dropdown
-    <span className="caret"></span>
-  </button>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" className="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-endsnippet
-
-snippet bspopup
-<button type="button" className="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-endsnippet
-
-snippet bslabel
-<span className="label label-default">Default</span>
-<span className="label label-primary">Primary</span>
-<span className="label label-success">Success</span>
-<span className="label label-info">Info</span>
-<span className="label label-warning">Warning</span>
-<span className="label label-danger">Danger</span>
-endsnippet
-
-snippet bsbadge
-<a href="#">Inbox <span className="badge">42</span></a>
-endsnippet
-
-snippet bsmodal
-<div className="modal fade" tabindex="-1" role="dialog">
-  <div className="modal-dialog">
-    <div className="modal-content">
-      <div className="modal-header">
-        <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 className="modal-title">Modal title</h4>
-      </div>
-      <div className="modal-body">
-        <p>One fine body&hellip;</p>
-      </div>
-      <div className="modal-footer">
-        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-endsnippet
-
-snippet bsslide
-<div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
-  <ol className="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
-  <div className="carousel-inner" role="listbox">
-    <div className="item active">
-      <div className="carousel-caption">
-      </div>
-    </div>
-    <div className="item">
-      <div className="carousel-caption">
-      </div>
-    </div>
-  </div>
-
-  <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span className="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span className="sr-only">Previous</span>
-  </a>
-  <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span className="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span className="sr-only">Next</span>
-  </a>
-</div>
-endsnippet
-
-snippet bsmodaljs
-$('#myModal').modal({
-  backdrop: true,
-  keyboard: true,
-  show: true
-})
-endsnippet
-
-snippet bsdropdownjs
-$('.dropdown-toggle').dropdown()
-endsnippet
-
-snippet bspopupjs
-$('#example').popover(options)
-endsnippet
-
-snippet bsprogressbar
-<div className="progress">
-  <div className="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style={{width: "60%"}}>
-    60%
-  </div>
-</div>
-endsnippet
-
-snippet mason
-<div className="grid">
-  <div className="grid-item"></div>
-  <div className="grid-item grid-item--width2 grid-item--height2"></div>
-  <div className="grid-item grid-item--height3"></div>
-  <div className="grid-item grid-item--height2"></div>
-  <div className="grid-item grid-item--width3"></div>
-</div>
-endsnippet
-
-snippet masonjs
-$('.grid').masonry({
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
-var msnry = new Masonry( '.grid', {
-});
-gridElement.appendChild( elem );
-msnry.appended( elem );
-msnry.layout();
-endsnippet
-
-snippet gallery
-<div className="container-fluid">
-  <div className="row">
-      <div className="gallery js-flickity">
-        <div className="gallery-cell">Hello</div>
-        <div className="gallery-cell">world</div>
-      </div>
-  </div>
-</div>
-endsnippet
-
-snippet chartistline
-new Chartist.Line('#chart', {
-  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-  series: [
-    [12, 9, 7, 8, 5],
-    [2, 1, 3.5, 7, 3],
-    [1, 3, 4, 5, 6]
-  ]
-}, {
-  fullWidth: true,
-  chartPadding: {
-    right: 40
+snippet reduxrd
+function todos(state, action) {
+  state = state || [];
+  switch(action.type) {
+    default:
+	  return state;
   }
+}
+endsnippet
+
+snippet reduxdp
+store.dispatch({
+  type: $1
 });
 endsnippet
 
-snippet chartistbar
-var data = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-  series: [
-    [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
-    [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
-  ]
-};
-
-var options = {
-  seriesBarDistance: 10
-};
-
-var responsiveOptions = [
-  ['screen and (max-width: 640px)', {
-    seriesBarDistance: 5,
-    axisX: {
-      labelInterpolationFnc: function (value) {
-        return value[0];
-      }
-    }
-  }]
-];
-
-new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
-endsnippet
-
-snippet chartistpie
-var data = {
-  series: [5, 3, 4]
-};
-
-var sum = function(a, b) { return a + b };
-
-new Chartist.Pie('.ct-chart', data, {
-  labelInterpolationFnc: function(value) {
-    return Math.round(value / data.series.reduce(sum) * 100) + '%';
+snippet reduxctn
+function mapStateToProps(state) {
+  return {
+   stateProp: state
   }
-});
+}
+
+function mapDispatchToProps(dispatch) {
+  onClick: function(param) {
+    dispatch({
+	  type: 'TYPE',
+	  param: param
+    })
+  }
+}
+
+connect Container = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContainedComponent)
 endsnippet
 
-snippet drag
-<div className="wrapper">
-  <div id="left-events" className="container">
-    <div>As soon as you start dragging an element, a <code>drag</code> event is fired</div>
-    <div>Whenever an element is cloned because <code>copy: true</code>, a <code>cloned</code> event fires</div>
-    <div>The <code>shadow</code> event fires whenever the placeholder showing where an element would be dropped is moved to a different container or position</div>
-    <div>A <code>drop</code> event is fired whenever an element is dropped anywhere other than its origin <em>(where it was initially dragged from)</em></div>
-  </div>
-  <div id="right-events" className="container">
-    <div>If the element gets removed from the DOM as a result of dropping outside of any containers, a <code>remove</code> event gets fired</div>
-    <div>A <code>cancel</code> event is fired when an element would be dropped onto an invalid target, but retains its original placement instead</div>
-    <div>The <code>over</code> event fires when you drag something over a container, and <code>out</code> fires when you drag it away from the container</div>
-    <div>Lastly, a <code>dragend</code> event is fired whenever a drag operation ends, regardless of whether it ends in a cancellation, removal, or drop</div>
-  </div>
-</div>
+snippet func
+function(){$1}.bind(this)
 endsnippet
 
-snippet dragjs
-dragula([document.getElementById(left), document.getElementById(right)])
-  .on('drag', function (el) {
-    el.className = el.className.replace('ex-moved', '');
-  }).on('drop', function (el) {
-    el.className += ' ex-moved';
-  }).on('over', function (el, container) {
-    container.className += ' ex-over';
-  }).on('out', function (el, container) {
-    container.className = container.className.replace('ex-over', '');
-  });
-dragula([document.getElementById(single)], {
-  removeOnSpill: true
-});
+snippet tag
+<${1:div}$2>$3</$1>
+endsnippet
+
+snippet tag!
+<${1:div}$2>
+  $3
+</$1>
 endsnippet
 # vim:ft=snippets:
