@@ -54,4 +54,64 @@ snippet tp "template <typename ..> (template)"
 template <typename ${1:_InputIter}>
 endsnippet
 
+snippet comp "competitive programming template"
+#include <algorithm>
+#include <bitset>
+#include <climits>
+#include <iostream>
+#include <set>
+#include <map>
+#include <unordered_map>
+#include <vector>
+
+using namespace std;
+
+#define vi vector<int>
+#define vs vector<string>
+#define mii map<int, int>
+#define msi map<string, int>
+#define mss map<string, string>
+#define hii unordered_map<int, int>
+#define hsi unordered_map<string, int>
+#define hss unordered_map<string, string>
+
+#define _Del(X, Y)      (X).erase((X).begin() + (Y))
+#define _Ins(X, A, P)   (X).insert((X).begin() + (P), (A))
+#define _Find(X, Y)     (find((X).begin(), (X).end(), (Y)))
+#define _FindS(X, Y, Z) (find((Z), (X).end(), (Y)))
+#define _Has(X, Y)      (find((X).begin(), (X).end(), (Y)) != (X).end())
+
+#define _Mfind(X, Y)    ((X).find((Y)))
+#define _Mhas(X, Y)     ((X).find((Y)) != (X).end())
+
+#define _S(fun, X, Y)   (fun((X).begin(), (X).end(), (Y)))
+#define _Sort(X)        std::sort((X).begin(), (X).end())
+
+int main()
+{
+    return 0;
+}
+endsnippet
+
+snippet findall "Find all in vector"
+auto ${1:i} = std::find(${2:a}.begin(), $2.end(), ${3:1});
+while ($1 != $2.end()) {
+	$1 = std::find($1 + 1, $2.end(), $3);
+}
+endsnippet
+
+snippet readline
+string line;
+while (std::getline(std::cin, line)) {
+	$0
+}
+endsnippet
+
+snippet foriter
+for (auto ${1:i} = ${2:a}.begin(); $1 != $2.end(); $1++) {
+	//$1->first, $1->second
+	$3
+}
+endsnippet
+
 # vim:ft=snippets:

@@ -699,30 +699,7 @@ ${1:${VISUAL:doc}}
 `!p snip.rv = triple_quotes(snip)`
 endsnippet
 
-snippet pltbar
-from IPython.core.pylabtools import figsize
-import numpy as np
-from matplotlib import pyplot as plt
-figsize(12.5, 4)
-
-import scipy.stats as stats
-
-a = np.arange(16)
-
-poi = stats.poisson
-lambda_ = [1.5, 4.25]
-colors = ["#348ABD", "#A60628"]
-
-plt.bar(x, y, color="#FFFFFF", label="$\lambda = 1.5.f$",
-		alpha=0.60, edgecolor="#FFFFFF", lw="3")
-plt.xticks(x + 0.4, x)
-plt.legend()
-plt.ylabel("X label")
-plt.xlabel("$k$")
-plt.title("Title")
-endsnippet
-
-snippet numpydoc "Documentation, numpy style"
+snippet npdoc "Documentation, numpy style"
 """
 What this does
 
