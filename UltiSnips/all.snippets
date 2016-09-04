@@ -73,4 +73,8 @@ snippet modeline "Vim modeline"
 vim`!v ':set '. (&expandtab ? printf('et sw=%i ts=%i', &sw, &ts) : printf('noet sts=%i sw=%i ts=%i', &sts, &sw, &ts)) . (&tw ? ' tw='. &tw : '') . ':'`
 endsnippet
 
+snippet hash "Generic hash function producing good random numbers (64 bit)"
+x * 2862933555777941757 + 3037000493
+endsnippet
+
 # vim:ft=snippets:
